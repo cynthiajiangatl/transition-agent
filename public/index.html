@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transition Agent — Handover Brief</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⇄</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⇄</span>
+      <div>
+        <h1>Transition Agent</h1>
+      </div>
+    </div>
+    <div class="actions">
+      <select id="userSelect" class="user-select" title="Select employee" style="display:none"></select>
+      <span id="generated" class="generated"></span>
+      <span id="dirtyDot" class="dirty-dot" title="Unsaved changes"></span>
+      <button id="editBtn" class="btn ghost">✎ Edit</button>
+      <button id="refreshBtn" class="btn ghost" title="Re-pull live data (Work IQ, or Microsoft Graph if Work IQ is unavailable)">⟳ Refresh</button>
+      <button id="exportBtn" class="btn ghost">⬇ Export JSON</button>
+      <button id="printBtn" class="btn ghost">Print / PDF</button>
+      <a id="sharedLink" href="/shared" class="btn ghost" style="display:none" title="Data shared with me">🔗 Shared with me</a>
+      <a id="adminLink" href="/admin" class="btn ghost" style="display:none" title="Manage delegated access">⚙ Admin</a>
+      <span id="userBadge" class="user-badge" style="display:none" title="Signed in"></span>
+      <a id="logoutLink" href="/logout" class="btn ghost" style="display:none">Sign out</a>
+    </div>
+  </header>
+  <div id="flash" class="flash"></div>
+
+  <div class="layout">
+    <nav class="sidenav" id="sidenav"></nav>
+    <main id="main">
+      <div class="loading" id="loading">Loading handover data…</div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

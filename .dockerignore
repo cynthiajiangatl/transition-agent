@@ -1,0 +1,36 @@
+# The Dockerfile does `COPY . .`, so anything not excluded here is baked into the
+# image and readable by anyone who can pull it. Secrets MUST stay out.
+
+# --- secrets & credentials ---------------------------------------------------
+.env
+.env.*
+.secret_key.txt
+.token_cache.bin
+*.pem
+*.pfx
+*.key
+*.p12
+
+# --- private M365 content ----------------------------------------------------
+data/
+*.log
+
+# --- source control, tooling, deployment metadata ----------------------------
+.git
+.gitignore
+.github/
+.vscode/
+.azure/
+infra/
+scripts/
+
+# --- python ------------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# --- docs & design artifacts -------------------------------------------------
+*.md
+*.vsdx

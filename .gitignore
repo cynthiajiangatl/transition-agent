@@ -1,0 +1,28 @@
+# Work IQ delegated token cache — contains a credential, never commit
+.token_cache.bin
+
+# Per-employee handover briefs contain private M365 data — don't commit
+data/handovers/*.json
+data/**/*.migrated
+data/*.migrated
+
+# Local config
+.env
+.env.*
+!.env.example
+
+# Generated deployment secrets (Flask session key, certs)
+.secret_key.txt
+*.pem
+*.pfx
+*.key
+*.p12
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs / scratch
+*.log

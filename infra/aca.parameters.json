@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": { "value": "transitionagent" },
+    "location": { "value": "eastus2" },
+    "imageName": { "value": "transition-agent:latest" },
+    "containerCpu": { "value": "0.5" },
+    "containerMemory": { "value": "1Gi" },
+    "workiqEnabled": { "value": "false" },
+    "cosmosEndpoint": { "value": "https://caigcosmoscj1.documents.azure.com:443/" },
+    "cosmosDatabase": { "value": "transition-agent" },
+    "cosmosContainer": { "value": "handovers" },
+    "storageAccountUrl": { "value": "https://transitionagentstorecj1.blob.core.windows.net" },
+    "backupContainer": { "value": "handover-backups" },
+    "aadClientId": { "value": "00815db6-c56b-4e2e-a023-9ae44dd7f08b" },
+    "aadLoginScopes": { "value": "User.Read User.Read.All People.Read Files.Read.All Sites.Read.All Calendars.Read Mail.Read Tasks.Read Team.ReadBasic.All GroupMember.Read.All" },
+    "graphDetectPii": { "value": "true" },
+    "sectionLimits": {
+      "value": {
+        "MAX_CONTACTS": "20",
+        "MAX_PROJECTS": "20",
+        "MAX_IMPORTANT_FILES": "20",
+        "MAX_RECURRING_PROCESSES": "20",
+        "MAX_OUTSTANDING_ITEMS": "20",
+        "MAX_ACCESS_TRANSFERS": "20"
+      }
+    },
+    "logLevel": { "value": "INFO" }
+  }
+}

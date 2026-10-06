@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transition Agent — Access Administration</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⇄</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⇄</span>
+      <div>
+        <h1>Transition Agent</h1>
+        <div class="subtitle">Access administration</div>
+      </div>
+    </div>
+    <div class="actions">
+      <a href="/" class="btn ghost">← Back to briefs</a>
+      <span id="userBadge" class="user-badge" style="display:none" title="Signed in"></span>
+      <a id="logoutLink" href="/logout" class="btn ghost" style="display:none">Sign out</a>
+    </div>
+  </header>
+  <div id="flash" class="flash"></div>
+
+  <main class="admin-main">
+    <section class="admin-card">
+      <h2>Grant access to a departed employee's data</h2>
+      <p class="desc">
+        The successor does <strong>not</strong> need any Azure role. This records an
+        application-level grant so the named person can read the selected employee's
+        handover brief and backed-up files. Grants expire automatically and can be revoked.
+      </p>
+      <form id="grantForm" class="grant-form" autocomplete="off">
+        <div class="fld">
+          <label for="subject">Departed employee</label>
+          <select id="subject" required></select>
+        </div>
+        <div class="fld">
+          <label for="grantee">Successor (Entra sign-in / email)</label>
+          <input id="grantee" type="email" placeholder="successor@contoso.com" required />
+        </div>
+        <div class="fld narrow">
+          <label for="days">Expires in (days)</label>
+          <input id="days" type="number" min="1" value="90" />
+        </div>
+        <button type="submit" class="btn primary">Grant access</button>
+      </form>
+      <div id="formMsg" class="form-msg"></div>
+    </section>
+
+    <section class="admin-card">
+      <div class="sec-head">
+        <div><h3>Existing grants</h3><p class="desc">Active and past delegated-access grants.</p></div>
+        <select id="filter" class="user-select" title="Filter by employee"></select>
+      </div>
+      <div class="card tablecard">
+        <table>
+          <thead>
+            <tr><th>Successor</th><th>Departed employee</th><th>Status</th><th>Granted by</th><th>Expires</th><th></th></tr>
+          </thead>
+          <tbody id="grantRows"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
